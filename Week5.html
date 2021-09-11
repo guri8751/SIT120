@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Components</title>
+</head>
+
+<body>
+
+    <!--Composing with Components-->
+    <div id="app">
+        <test-component></test-component>
+    </div>
+
+    <div id="component1">
+        <testcomponent></testcomponent>
+    </div>
+    <div id="component2">
+        <testcomponent></testcomponent>
+    </div>
+
+    <!--Handling User Inputs-->
+    <div id="app5">
+        <p>{{ message }}</p>
+        <button v-on:click="addNumber">Add Random Number</button>
+    </div></br>
+
+
+
+
+    <script>
+        Vue.component('test-component', {
+            template: '<p>This is a component</p>'
+
+        })
+
+        var app = new Vue({
+            el: '#app'
+        })
+
+        Vue.component('testcomponent', {
+            template: '<div v-on:mouseover = "switchName()" v-on:mouseout = "originalName();"><h3>This program has been made by {{name}}</h3></div>',
+            data: function () {
+                return {
+                    name: "Original"
+                }
+            },
+            methods: {
+                switchName: function () {
+                    this.name = "Jake";
+                },
+                originalName: function () {
+                    this.name = "Peralta";
+                }
+            }
+        });
+        var app1 = new Vue({
+            el: '#component1'
+        });
+        var app2 = new Vue({
+            el: '#component2'
+        });
+
+        var app5 = new Vue({
+            el: '#app5',
+            data: {
+                message: Math.floor(Math.random() * 10)
+            },
+            methods: {
+                addNumber: function () {
+                    this.message += Math.floor(Math.random() * 10);
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>
