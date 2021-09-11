@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <h1>Form User</h1>
+
+        <p style="color: red;">{{ error }}</p>
+
+        <form method="post" action="#">
+            <div>
+                <label for="name">Name</label></br>
+                <input name="name" id="name" v-model="form.name" />
+            </div></br>
+            <div>
+                <label for="password">Password</label></br>
+                <input name="password" id="password" v-model="form.password" type="password" />
+            </div></br>
+            <div>
+                <label for="email">Email</label></br>
+                <input name="email" id="email" v-model="form.email"></input>
+            </div></br>
+
+            <button @click.prevent="formValidation">Submit</button>
+        </form>
+
+        <h2>Form Details</h2>
+
+        <p>Name: {{ form.name }}</p>
+        <p>Email: {{ form.email }}</p>
+
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                form: {
+                    name: '',
+                    password: '',
+                    email: '',
+                },
+                error: '',
+            },
+            methods: {
+                formValidation: function () {
+                    if (this.form.name.length && this.form.password.length && this.form.email.length) {
+                        return this.error = 'Form has been Sent!';
+                    }
+
+                    return this.error = 'Invalid Form';
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
