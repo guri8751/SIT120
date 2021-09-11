@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <!--Global Component-->
+    <div id="components">
+        <about-us></about-us>
+    </div>
+
+    <!--Local Component-->
+    <div id="components2">
+        <about-us-local></about-us-local>
+    </div>
+
+    <!--Use of Props-->
+    <div id="app">
+        <title-text user-id="555" :link="{ title: 'Home: Coming From Child component', link: '#home' }"></title-text>
+    </div>
+
+
+
+    <script>
+        Vue.component('about-us', {
+            data: function () {
+                return {
+                    location: 'Melbourne'
+                };
+            },
+            template: `
+		            <div>
+			            <h1>About Us</h1>
+			            <p>Please visit us at {{ location }}</p>
+		            </div>
+	        `
+        });
+
+        new Vue({
+            el: '#components',
+        });
+
+        var aboutUs = {
+            data: function () {
+                return {
+                    location: 'Melbourne'
+                };
+            },
+            template: `
+		<div>
+			<h1>About Us</h1>
+			<p>Please visit us at {{ location }}</p>
+		</div>
+	`
+        };
+
+        new Vue({
+            el: '#components2',
+            components: {
+                'about-us-local': aboutUs
+            }
+        });
+
+
+        Vue.component('title-text', {
+            template: '<div>{{ link.title }}</div>',
+
+            props: ['Id', 'link']
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>
