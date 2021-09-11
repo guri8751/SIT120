@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="demo-strings"></p>
+    <p id="demo-numbers"></p>
+    <p id="demo-arrays"></p>
+    <p id="demo-getset"></p>
+    <script>
+        const string1 = "A string primitive";
+        const string2 = 'Also a string primitive';
+        const string3 = `Yet another string primitive`;
+
+
+        //String Methods
+        document.getElementById("demo-strings").innerHTML = string1.charAt(0) + "<br />";
+
+        document.getElementById("demo-strings").innerHTML += string1.endsWith("primitive") + "<br />";
+
+        document.getElementById("demo-strings").innerHTML += string2.toLowerCase() + "<br />";
+
+        //Number Methods
+        let x = 123;
+        document.getElementById("demo-numbers").innerHTML += x.toString() + "<br />";
+
+        let y = 98.246;
+        document.getElementById("demo-numbers").innerHTML += y.toExponential(2) + "<br />";
+
+        let a = 98.246;
+        document.getElementById("demo-numbers").innerHTML += y.toPrecision(2) + "<br />";
+
+        //Array Methods
+        const fruits = ["Banana", "Orange", "Apple"];
+        document.getElementById("demo-arrays").innerHTML += fruits.toString() + "<br />";
+
+        document.getElementById("demo-arrays").innerHTML += fruits.join(" * ") + "<br />";
+
+        fruits.pop();
+        document.getElementById("demo-arrays").innerHTML += fruits.toString() + "<br />";
+
+        fruits.push("Watermelon");
+        document.getElementById("demo-arrays").innerHTML += fruits.toString() + "<br />";
+
+        fruits.splice(2, 0, "Pomengranate", "Kiwi");
+        document.getElementById("demo-arrays").innerHTML += fruits.toString() + "<br />";
+
+        //Get/Set Mehtods
+
+        var d = new Date();
+        document.getElementById("demo-getset").innerHTML += d.getDate() + "<br />";
+
+        document.getElementById("demo-getset").innerHTML += d.getFullYear() + "<br />";
+
+
+
+
+
+    </script>
+</body>
+
+</html>
