@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <div id='parent'>
+        <img v-bind:src="image" width="300">
+        <h3>
+            Different programming languages
+        </h3>
+        <ul>
+            <li>
+                <strong>{{lang1}}</strong>
+                is my favourite
+            </li>
+            <li>
+                <strong>{{lang2}}</strong>
+                is my 2nd favourite
+            </li>
+            <li>
+                <strong>{{lang3}}</strong>
+                is my 3rd favourite
+            </li>
+        </ul>
+
+    </div>
+
+
+
+    <div id="app2">
+        <span v-bind:title="message">
+            This demonstrates the V-Bind property
+        </span>
+    </div>
+
+    <div id="conditionial">
+        <p v-if="boolean == 'A'">This will be displayed if the boolean variable is set to A in the script section</p>
+        <p v-else-if="boolean == 'B'">This will be displayed if the boolean variable is set to B in the script section
+        </p>
+        <p v-else-if="boolean == 'C'">This will be displayed if the boolean variable is set to C in the script section
+        </p>
+        <p v-else>This will be displayed if the boolean variable is neither set to A, B or C in the script section</p>
+        <p v-show="show">Another option for conditionally displaying an element is the v-show directive</p>
+
+    </div>
+
+    <div id="loop">
+        <ul>
+            <li v-for="value in list">
+                {{ value }}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        })
+
+        var parent = new Vue({
+            el: '#parent',
+            data: {
+                image: "python.png",
+                lang1: "HTML",
+                lang2: "JAVA",
+                lang3: "Python"
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                message: 'You loaded this page on ' + new Date().toLocaleString()
+            }
+        })
+
+        var conditionial = new Vue({
+            el: '#conditionial',
+            data: {
+                boolean: 'Z',
+                show: false
+            }
+        })
+
+        var loop = new Vue({
+            el: '#loop',
+            data: {
+                list: {
+                    title: 'Merchant of Venice',
+                    author: 'William Shakespeare',
+                    publishedAt: 'Long time ago'
+                }
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>
