@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <link rel="stylesheet" href="/Week1.css">
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        body {
+            font-size: 15px;
+            color: black;
+
+        }
+    </style>
+
+    <div>
+        <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/ckykef7ov0iiv3oo8fcg/air-force-1-07-shoe-yATkW1Bp.png"
+            width=100px>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>GENDER</th>
+            </tr>
+            <thead>
+            <tbody>
+                <tr>
+                    <td>Jack</td>
+                    <td>50</td>
+                    <td>Male</td>
+                </tr>
+                <tr>
+                    <td>John</td>
+                    <td>40</td>
+                    <td>Male</td>
+                </tr>
+                <tr>
+                    <td>Jess</td>
+                    <td>21</td>
+                    <td>Female</td>
+                </tr>
+                <tr>
+                    <td>Jenna</td>
+                    <td>42</td>
+                    <td>Female</td>
+                </tr>
+            </tbody>
+    </table>
+
+    <ul>
+        <li>First Element</li>
+        <li>Second Element</li>
+        <li>Third Element</li>
+    </ul>
+
+    <form>
+        <label for="fname">First name</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name</label><br>
+        <input type="text" id="lname" name="lname"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>The student's test result are: </h2>
+    <p id="test"></p>
+
+    <h2>Date and Time</h2>
+
+    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+        Click here to display Date and Time.</button>
+    <p id="demo"></p>
+
+
+    <div id="app">
+        <h3>Todos: </h3>
+        <todo-item v-for="item in   List" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+    </div>
+
+    <script>
+
+        var test1 = 98;
+        var test2 = 93;
+        var test3 = 94;
+
+        var sum = test1 + test2 + test3;
+        var avg = sum / 3;
+
+        document.getElementById("test").innerHTML = "The scores of the test are " + test1 +
+            ", " + test2 + ", " + test3 + ". The sum and average is " + sum + ", " + avg;
+
+
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li><input type="checkbox"> <label> {{todo.text}} </label><br></li>'
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                List: [
+                    { id: 0, text: 'Assignment 1: Project' },
+                    { id: 1, text: 'Asignment 2: Project and PPT' },
+                    { id: 2, text: 'Assignment 3: Portfolio' }
+                ]
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
