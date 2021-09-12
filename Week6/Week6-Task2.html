@@ -1,0 +1,17 @@
+<html>
+
+<head>
+    <title>Checkbox</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <checkbox-group>
+            <checkbox-vue v-for="(option, index) in options" v-model="Data[option.label]" :key="option.id"
+                :label="option.label" :name="name"></checkbox-vue>
+        </checkbox-group>
+    </div>
+</body>
+
+</html>
